@@ -1,30 +1,30 @@
 class Tessivum < Formula
-  desc "Tessivum AI agent"
+  desc "Rust-native AI agent harness"
   homepage "https://github.com/wavetao2010/tessivum"
-  version "0.1.0-alpha.11"
+  version "0.1.0-alpha.12"
+
+  depends_on "bun"
+  depends_on "pnpm"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.11/tessivum-0.1.0-alpha.11-x86_64-apple-darwin.tar.gz"
-      sha256 "2638c448d1556ef96f866a6d2077fdd40f9748f3bbd185756bbe7edfd8a576b0"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-x86_64-apple-darwin.tar.gz"
+      sha256 "4122dd79f6a307637b8735e409bed1257790566b5d750f42d76dd11dfa24849d"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.11/tessivum-0.1.0-alpha.11-aarch64-apple-darwin.tar.gz"
-      sha256 "186cdac995d061f3e2d0fb0d733c8c7321e9c713a8f943197ab6b7d9e93f5637"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-aarch64-apple-darwin.tar.gz"
+      sha256 "8f8d038274812daa7c7ae268aa6d5846a1f135569bb01dc72444d0843b247f8b"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.11/tessivum-0.1.0-alpha.11-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "91ee3bd388bdb00921e5dde105e2ec917e79731b7ded6dcb4d43b629560a50fe"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "666590612388cd065228cd93d898585772b6e3a6090a254e02fb10b29fc3ec8e"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.11/tessivum-0.1.0-alpha.11-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "fadf6f74e4295a14946736ce21c11ba65799fc67ba14a36d00e684fb3c062ce3"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6af064f384e2ad9de5dd03e25235adb3e499ee05edee36b7dfc491f278f2c1ec"
     end
   end
-
-  depends_on "bun"
-  depends_on "pnpm"
 
   def install
     libexec.install Dir["*"]
