@@ -1,37 +1,39 @@
 class Tessivum < Formula
   desc "Rust-native AI agent harness"
   homepage "https://github.com/wavetao2010/tessivum"
-  version "0.1.0-alpha.14"
+  version "0.1.0-alpha.15"
 
   depends_on "bun"
   depends_on "pnpm"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-x86_64-apple-darwin.tar.gz"
-      sha256 "4e46656564b10ee5d0b9f20c044a7f201141408107f90db07f79cbf9ba3f73c8"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.15/tessivum-0.1.0-alpha.15-x86_64-apple-darwin.tar.gz"
+      sha256 "0089d7e0222f4daa6f81569577da915b73fba8ef3e0cddafb9aecef597659fd9"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-aarch64-apple-darwin.tar.gz"
-      sha256 "dc318d028fed828ef218740ac2686547777f5206b544ba293b4f8185baff1531"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.15/tessivum-0.1.0-alpha.15-aarch64-apple-darwin.tar.gz"
+      sha256 "4f666541af5574b5c2007cf50a7cc5fe486bdb6c334777d85c02dc34c56ad24a"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "db74b680a6f4fdccba5b6a14c1306fa2f09705281ec908249acee2985ff624e1"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.15/tessivum-0.1.0-alpha.15-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "a9941e2006e93f04fddd50274293ff13f23cffbde78fc7ec4b74615432a00884"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "119726067573c0b9525314add9f01ac087245f141a3a8c2a4ed35108da43d7d5"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.15/tessivum-0.1.0-alpha.15-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6e76928409a2158c8f5eb3f4313102f06e9072aaeb77f6731fa7520dac1d5f0b"
     end
   end
 
   def install
     libexec.install Dir["*"]
     bin.install_symlink libexec/"bin/tessivum"
+    bin.install_symlink libexec/"bin/tessivum" => "tsv"
   end
 
   test do
-    system "#{bin}/tessivum", "--version"
+    assert_equal shell_output("#{bin}/tessivum --version"), shell_output("#{bin}/tsv --version")
+    assert_equal shell_output("#{bin}/tessivum --help"), shell_output("#{bin}/tsv --help")
   end
 end
