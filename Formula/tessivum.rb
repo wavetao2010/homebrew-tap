@@ -1,28 +1,28 @@
 class Tessivum < Formula
   desc "Rust-native AI agent harness"
   homepage "https://github.com/wavetao2010/tessivum"
-  version "0.1.0-alpha.12"
+  version "0.1.0-alpha.14"
 
   depends_on "bun"
   depends_on "pnpm"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-x86_64-apple-darwin.tar.gz"
-      sha256 "4122dd79f6a307637b8735e409bed1257790566b5d750f42d76dd11dfa24849d"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-x86_64-apple-darwin.tar.gz"
+      sha256 "4e46656564b10ee5d0b9f20c044a7f201141408107f90db07f79cbf9ba3f73c8"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-aarch64-apple-darwin.tar.gz"
-      sha256 "8f8d038274812daa7c7ae268aa6d5846a1f135569bb01dc72444d0843b247f8b"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-aarch64-apple-darwin.tar.gz"
+      sha256 "dc318d028fed828ef218740ac2686547777f5206b544ba293b4f8185baff1531"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "666590612388cd065228cd93d898585772b6e3a6090a254e02fb10b29fc3ec8e"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "db74b680a6f4fdccba5b6a14c1306fa2f09705281ec908249acee2985ff624e1"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.12/tessivum-0.1.0-alpha.12-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "6af064f384e2ad9de5dd03e25235adb3e499ee05edee36b7dfc491f278f2c1ec"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.14/tessivum-0.1.0-alpha.14-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "119726067573c0b9525314add9f01ac087245f141a3a8c2a4ed35108da43d7d5"
     end
   end
 
