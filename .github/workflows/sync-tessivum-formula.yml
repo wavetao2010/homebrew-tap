@@ -1,0 +1,41 @@
+name: Sync Tessivum Formula
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-tessivum-formula
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Sync latest published Formula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="$(gh api 'repos/wavetao2010/tessivum/releases?per_page=1' --jq '.[0].tag_name')"
+          test -n "$tag"
+          gh release download "$tag" \
+            --repo wavetao2010/tessivum \
+            --pattern tessivum.rb \
+            --output Formula/tessivum.rb \
+            --clobber
+          ruby -c Formula/tessivum.rb
+          if git diff --quiet -- Formula/tessivum.rb; then
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Formula/tessivum.rb
+          git commit -m "tessivum ${tag#v}"
+          git push
