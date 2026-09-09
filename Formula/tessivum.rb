@@ -7,21 +7,21 @@ class Tessivum < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.24/tessivum-0.1.0-alpha.24-x86_64-apple-darwin.tar.gz"
-      sha256 "944179b1bb5f32d37b09df4cbcd9aca6a0898ebb04414f8e58ef053d5a866566"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.25/tessivum-0.1.0-alpha.25-x86_64-apple-darwin.tar.gz"
+      sha256 "960efaf89ca1c749f3f130c588fed1c678fe6acb36dd62062221f5402bfb4f15"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.24/tessivum-0.1.0-alpha.24-aarch64-apple-darwin.tar.gz"
-      sha256 "e2bba2302e4b1bcd6c1571b5e770ef01d395027fda2dd68fca24ad0764ec933e"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.25/tessivum-0.1.0-alpha.25-aarch64-apple-darwin.tar.gz"
+      sha256 "ad76af64367d97ad968e8116787a5b5b947fdcb1433a7f936a5a3fd87f22a1de"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.24/tessivum-0.1.0-alpha.24-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "b046985e7594dd40b89241f6040fadd8e1f0e3138bc86567aa186ff34289071b"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.25/tessivum-0.1.0-alpha.25-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3bf1ed1a0951aa6e6de05e487aa6cdbe2f64448f2749607638c3a76765ba467c"
     elsif Hardware::CPU.arm?
-      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.24/tessivum-0.1.0-alpha.24-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "1301eec3e8f4d8230da00351c66093a568b588422f51282c669b572635a3972f"
+      url "https://github.com/wavetao2010/tessivum/releases/download/v0.1.0-alpha.25/tessivum-0.1.0-alpha.25-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6adc5957eb22b866c65831db691328d608e40d45d8d734fd4f1409dbf0f87d8d"
     end
   end
 
